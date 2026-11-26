@@ -1,0 +1,317 @@
+/* Academic personal website — editorial, image-led, intentionally understated */
+:root {
+  /* Colour palette. Each theme below only overrides these values.
+     The theme in use is chosen with `theme` in content.js. */
+  --paper: #fff;            /* page background */
+  --warm: #f7f7f5;          /* alternate section background (Research) */
+  --ink: #202832;           /* main text, headings */
+  --heading: #1a2a3c;       /* big titles */
+  --text: #4b555f;          /* long paragraphs */
+  --text-2: #5d6670;        /* secondary paragraphs */
+  --muted: #687783;         /* dates, metadata */
+  --subtle: #949a9d;        /* captions */
+  --minor: #263649;         /* small uppercase titles */
+  --accent: #335c7b;        /* links */
+  --accent-hover: #1e3f59;
+  --accent-line: #c4d1dc;   /* underline of small links */
+  --highlight: var(--accent); /* active menu bar, hero rule */
+  --focus: #7aaad5;
+  --border: #dedfe0;
+  --border-soft: #e3e5e6;
+  --header-bg: rgba(255,255,255,.97);
+  --header-border: #e7e7e7;
+  --nav: #53606c;
+  --nav-active: #1b2939;
+  --hero-bg: #dfe6ee;
+  --hero-blend: normal;      /* 'luminosity' recolours the banner image with --hero-bg */
+  --hero-tint: 224,231,239;  /* colour washed over the banner image (r,g,b) */
+  --hero-tint-from: .55; --hero-tint-to: 0;
+  --hero-tint-from-m: .8; --hero-tint-to-m: .35;  /* phones */
+  --hero-title: #1a2a3c;
+  --hero-text: #4a5a6b;
+  --hero-rule: #7f94a9;
+  --plate: #fff;            /* background behind the scientific figures */
+  --shadow: 26,42,60;       /* shadow colour (r,g,b) */
+  --footer-bg: #162434;
+  --footer-text: #fff;
+  --footer-muted: #9eacb9;
+  --footer-link: #c9d3dc;
+  --footer-line: rgba(255,255,255,.16);
+  --header-height: 74px;
+}
+
+/* ——— Colour themes ——— */
+/* Encre & papier: warm paper, near-black ink, oxblood links */
+[data-theme="encre"] {
+  --paper: #fcfbf8; --warm: #f3f0e9;
+  --ink: #26221e; --heading: #1f1b17; --text: #4d4741; --text-2: #5c554e; --muted: #7a7067; --subtle: #9a9086; --minor: #3a332d;
+  --accent: #8a2f2a; --accent-hover: #6a221e; --accent-line: #e2cfc9; --highlight: #8a2f2a; --focus: #c98a7f;
+  --border: #e4dfd6; --border-soft: #e8e3da;
+  --header-bg: rgba(252,251,248,.97); --header-border: #ebe6dd; --nav: #5c554e; --nav-active: #1f1b17;
+  --hero-bg: #e6dccb; --hero-blend: luminosity; --hero-tint: 243,239,231; --hero-tint-from: .7; --hero-tint-to: .1;
+  --hero-title: #1f1b17; --hero-text: #4d4741; --hero-rule: #b08a84;
+  --shadow: 60,40,30;
+  --footer-bg: #2a2421; --footer-muted: #b3a99f; --footer-link: #ddd4ca;
+}
+/* Sarcelle: cool white, deep teal links and footer */
+[data-theme="sarcelle"] {
+  --warm: #f1f6f5;
+  --ink: #1d2a2c; --heading: #14282b; --text: #47575a; --text-2: #56676a; --muted: #64787a; --subtle: #8b9a9c; --minor: #1f3a3d;
+  --accent: #1d6a6e; --accent-hover: #124b4e; --accent-line: #bfd8d8; --highlight: #1d6a6e; --focus: #6fb7b9;
+  --border: #dbe3e2; --border-soft: #e1e8e7;
+  --header-border: #e3e9e8; --nav: #4f6265; --nav-active: #14282b;
+  --hero-bg: #c9dfdf; --hero-blend: luminosity; --hero-tint: 221,234,234; --hero-tint-from: .6; --hero-tint-to: .05;
+  --hero-title: #14282b; --hero-text: #3f5558; --hero-rule: #6e9a9c;
+  --shadow: 15,43,46;
+  --footer-bg: #0f2b2e; --footer-muted: #93b0b1; --footer-link: #c3d8d8;
+}
+/* Lumière d'étoile: deep navy with a touch of gold */
+[data-theme="etoile"] {
+  --warm: #f6f5f0;
+  --ink: #1a2233; --heading: #121b2e; --text: #474f5e; --text-2: #565e6c; --muted: #6b7384; --subtle: #949aa5; --minor: #1f2c47;
+  --accent: #1f3a68; --accent-hover: #142848; --accent-line: #e3cf9f; --highlight: #c08a2c; --focus: #d9b26f;
+  --border: #e2e1dc; --border-soft: #e6e5e0;
+  --nav: #4b5468; --nav-active: #121b2e;
+  --hero-bg: #d3dbea; --hero-blend: luminosity;
+  --hero-title: #121b2e; --hero-text: #3e4a63; --hero-rule: #c08a2c;
+  --shadow: 18,27,46;
+  --footer-bg: #0f1b30; --footer-muted: #a2abbd; --footer-link: #e9d6a8;
+}
+/* Nuit: dark mode, night-sky background, figures stay on white plates */
+[data-theme="nuit"] {
+  --paper: #0f1620; --warm: #141d29;
+  --ink: #e6ebf1; --heading: #f1f4f8; --text: #b5c0cc; --text-2: #a7b2be; --muted: #8a97a5; --subtle: #74808d; --minor: #c8d2dd;
+  --accent: #8fbbe6; --accent-hover: #b9d6f2; --accent-line: #34506b; --highlight: #8fbbe6; --focus: #8fbbe6;
+  --border: #243142; --border-soft: #243142;
+  --header-bg: rgba(15,22,32,.92); --header-border: #1f2a38; --nav: #9aa7b5; --nav-active: #f1f4f8;
+  --hero-bg: #0f1620; --hero-tint: 15,22,32; --hero-tint-from: .88; --hero-tint-to: .4; --hero-tint-from-m: .9; --hero-tint-to-m: .65;
+  --hero-title: #f1f4f8; --hero-text: #c3ccd6; --hero-rule: #8fbbe6;
+  --shadow: 0,0,0;
+  --footer-bg: #0a1018; --footer-muted: #7f8c99; --footer-link: #b5c0cc; --footer-line: rgba(255,255,255,.1);
+}
+[data-theme="nuit"] { color-scheme: dark; }
+/* Forêt: fir green and moss on a pale sage paper */
+[data-theme="foret"] {
+  --paper: #fcfcf9; --warm: #f1f4ee;
+  --ink: #1f2a22; --heading: #17231b; --text: #4a564d; --text-2: #58645b; --muted: #6c786f; --subtle: #949d96; --minor: #22382a;
+  --accent: #2f5d3a; --accent-hover: #1f4028; --accent-line: #c9d8c8; --highlight: #2f5d3a; --focus: #82ac8a;
+  --border: #dfe4dc; --border-soft: #e5e9e2;
+  --header-bg: rgba(252,252,249,.97); --header-border: #e6eae3; --nav: #526056; --nav-active: #17231b;
+  --hero-bg: #d3dfd0; --hero-blend: luminosity; --hero-tint: 236,241,233; --hero-tint-from: .6; --hero-tint-to: .05;
+  --hero-title: #17231b; --hero-text: #435247; --hero-rule: #7f9e85;
+  --shadow: 25,45,30;
+  --footer-bg: #1c2b22; --footer-muted: #9fb0a3; --footer-link: #d3dfd3;
+}
+/* Aurore: soft plum and rose, like an aurora at dusk */
+[data-theme="aurore"] {
+  --paper: #fdfcfe; --warm: #f6f2f8;
+  --ink: #2a2233; --heading: #221a2c; --text: #534a5d; --text-2: #61586b; --muted: #776d82; --subtle: #9d95a6; --minor: #3a2a4b;
+  --accent: #6a3d8a; --accent-hover: #4e2a69; --accent-line: #ddcbe7; --highlight: #c0567a; --focus: #b38ad0;
+  --border: #e6e0ea; --border-soft: #ebe6ee;
+  --header-bg: rgba(253,252,254,.97); --header-border: #ece6f0; --nav: #5d5468; --nav-active: #221a2c;
+  --hero-bg: #e2d6ec; --hero-blend: luminosity; --hero-tint: 246,240,249; --hero-tint-from: .55; --hero-tint-to: .05;
+  --hero-title: #221a2c; --hero-text: #4f4560; --hero-rule: #c0567a;
+  --shadow: 45,25,60;
+  --footer-bg: #2a1e38; --footer-muted: #b1a3c0; --footer-link: #e6d6ee;
+}
+/* Graphite: black and white only, editorial and timeless */
+[data-theme="graphite"] {
+  --paper: #fff; --warm: #f4f4f4;
+  --ink: #161616; --heading: #0d0d0d; --text: #444; --text-2: #555; --muted: #6e6e6e; --subtle: #959595; --minor: #222;
+  --accent: #161616; --accent-hover: #555; --accent-line: #cfcfcf; --highlight: #161616; --focus: #888;
+  --border: #e0e0e0; --border-soft: #e6e6e6;
+  --header-border: #e6e6e6; --nav: #555; --nav-active: #0d0d0d;
+  --hero-bg: #dcdcdc; --hero-blend: luminosity; --hero-tint: 240,240,240; --hero-tint-from: .55; --hero-tint-to: 0;
+  --hero-title: #0d0d0d; --hero-text: #444; --hero-rule: #888;
+  --shadow: 0,0,0;
+  --footer-bg: #141414; --footer-muted: #9a9a9a; --footer-link: #d6d6d6;
+}
+/* Nébuleuse: dark mode in deep violet with rose highlights */
+[data-theme="nebuleuse"] {
+  --paper: #16121f; --warm: #1c1727;
+  --ink: #ece6f4; --heading: #f6f2fb; --text: #c3bad2; --text-2: #b3a9c3; --muted: #958aa8; --subtle: #7d7290; --minor: #d8cfe6;
+  --accent: #e7a6c8; --accent-hover: #f4cde1; --accent-line: #5a3d58; --highlight: #e7a6c8; --focus: #e7a6c8;
+  --border: #2e2740; --border-soft: #2e2740;
+  --header-bg: rgba(22,18,31,.92); --header-border: #262033; --nav: #a89dbb; --nav-active: #f6f2fb;
+  --hero-bg: #3b2a55; --hero-blend: luminosity; --hero-tint: 22,18,31; --hero-tint-from: .8; --hero-tint-to: .3; --hero-tint-from-m: .88; --hero-tint-to-m: .6;
+  --hero-title: #f6f2fb; --hero-text: #d2c8e0; --hero-rule: #e7a6c8;
+  --shadow: 0,0,0;
+  --footer-bg: #0f0c16; --footer-muted: #8a7f9c; --footer-link: #c3bad2; --footer-line: rgba(255,255,255,.1);
+}
+[data-theme="nebuleuse"] { color-scheme: dark; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif; color: var(--ink); background: var(--paper); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+[hidden] { display: none !important; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); }
+a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+img { max-width: 100%; display: block; }
+h1,h2,h3,h4,p,figure { margin-top: 0; }
+h1,h2,h3 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; line-height: 1.15; letter-spacing: -.022em; }
+h2 { font-size: clamp(2.55rem,4vw,3.65rem); margin-bottom: 22px; }
+h3 { font-size: clamp(1.6rem,2.3vw,2.2rem); }
+.wrap { width: min(1120px, calc(100% - clamp(40px, 7vw, 80px))); margin-inline: auto; }
+.section { padding-top: 116px; padding-bottom: 116px; scroll-margin-top: var(--header-height); }
+
+/* Navigation: real anchors to the page sections, Publications opens a second page */
+.site-header { position: sticky; top: 0; z-index: 30; height: var(--header-height); background: var(--header-bg); border-bottom: 1px solid var(--header-border); backdrop-filter: blur(14px); }
+.header-content { min-height: var(--header-height); display: flex; align-items: center; justify-content: flex-end; gap: 35px; }
+.nav-links { display: flex; gap: clamp(18px,3vw,39px); align-items: center; }
+.nav-link { font-size: 13px; color: var(--nav); font-weight: 600; position: relative; white-space: nowrap; padding: 28px 0 26px; line-height: 18px; }
+.nav-link:hover,.nav-link.active { color: var(--nav-active); }
+.nav-link.active::after { position: absolute; content: ''; background: var(--highlight); bottom: 0; left: 0; width: 100%; height: 2px; }
+
+/* Large photographic-style astronomical header, no cards or decorative planets */
+.hero { position: relative; min-height: min(440px, 56vh); color: var(--ink); background: var(--hero-bg) url('hero-star.jpg') right center / cover no-repeat; background-blend-mode: var(--hero-blend); display: flex; align-items: center; overflow: hidden; scroll-margin-top: var(--header-height); }
+.hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(var(--hero-tint),var(--hero-tint-from)) 0%,rgba(var(--hero-tint),var(--hero-tint-to)) 55%); }
+.hero-inner { position: relative; z-index: 1; padding-top: 48px; padding-bottom: 52px; }
+.hero h1 { font-size: clamp(4.5rem,8vw,7.45rem); letter-spacing: -.05em; line-height: 1; max-width: 900px; margin-bottom: 22px; color: var(--hero-title); }
+.hero-role { font-size: 15px; color: var(--hero-text); font-weight: 400; line-height: 1.6; margin: 0; }
+.hero-rule { background: var(--hero-rule); height: 1px; width: 62px; margin: 18px 0 14px; opacity: .7; }
+.hero-tagline { font-size: 13px; color: var(--hero-text); letter-spacing: .02em; margin: 0; }
+
+/* Intro in a traditional academic portrait + text layout */
+.about-section { padding-bottom: 128px; }
+/* Photo and text share the width in a fixed proportion, so both scale smoothly with the window.
+   The title sits alone on the first row, so the photo always starts level with the first paragraph. */
+.about-layout { display: grid; grid-template-columns: minmax(0,52fr) minmax(300px,48fr); grid-template-rows: auto auto 1fr; grid-template-areas: ". title" "photo prose" "photo extras"; column-gap: clamp(32px,6vw,80px); align-items: start; }
+.about-title { grid-area: title; margin-top: 0; }
+.portrait-figure { grid-area: photo; }
+.about-prose { grid-area: prose; }
+.about-extras { grid-area: extras; }
+.about-extras .minor-title { margin-top: 38px; }
+/* Narrower windows: research interests + links move under the photo to keep the text column short */
+@media (max-width: 1023px) {
+  .about-layout { grid-template-areas: ". title" "photo prose" "extras prose"; }
+  .about-extras .minor-title { margin-top: 34px; }
+}
+.prose { max-width: 720px; }
+.prose p { font-size: 17px; color: var(--text); line-height: 1.86; margin: 0 0 24px; }
+.minor-title { text-transform: uppercase; font-weight: 700; color: var(--minor); font-size: 12px; letter-spacing: .11em; margin: 38px 0 14px; }
+.focus-list { margin: 0 0 26px; padding-left: 18px; color: var(--text); line-height: 2.05; }
+.focus-list li { padding-left: 6px; }
+.plain-links { display: flex; align-items: center; flex-wrap: wrap; gap: 13px 22px; margin-top: 28px; }
+.subtle-link { font-size: 13px; font-weight: 600; color: var(--accent); border-bottom: 1px solid var(--accent-line); padding-bottom: 3px; }
+.portrait-figure { margin: 0; }
+.portrait-holder { width: 100%; aspect-ratio: 4/5; border-radius: 4px; box-shadow: 0 1px 2px rgba(var(--shadow),.06), 0 12px 32px -14px rgba(var(--shadow),.28); background: linear-gradient(180deg,rgba(9,18,30,.08),rgba(9,18,30,.25)), url('hero-star.jpg') 65% center / cover no-repeat; display: flex; align-items: flex-end; justify-content: flex-start; overflow: hidden; }
+.portrait-holder span { font-size: 11px; color: rgba(255,255,255,.8); text-transform: uppercase; letter-spacing: .1em; padding: 16px; }
+.portrait-holder.has-image { background: var(--hero-bg); }
+.portrait-holder img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Research: long-form topics alternating images and text */
+.research-section { background: var(--warm); }
+.section-intro { max-width: 730px; margin-bottom: 76px; }
+.section-intro p { color: var(--text); font-size: 17px; line-height: 1.85; max-width: 720px; }
+.research-list { border-top: 1px solid var(--border); }
+.research-item { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.06fr); gap: clamp(44px,6.3vw,100px); align-items: center; padding: 69px 0 74px; border-bottom: 1px solid var(--border); }
+.research-item:nth-child(even) .research-art { order: 2; }
+.research-art { margin: 0; }
+/* Scientific figures sit on a white plate, shown whole (never cropped) at their own proportions */
+.research-art img { display: block; width: auto; max-width: 100%; height: auto; max-height: 470px; margin-inline: auto; padding: clamp(6px,0.9vw,12px); background: var(--plate); border: 1px solid var(--border-soft); border-radius: 4px; box-shadow: 0 1px 2px rgba(var(--shadow),.04), 0 10px 28px -16px rgba(var(--shadow),.22); box-sizing: border-box; }
+.research-art.is-tall img { max-height: 680px; }
+.research-art figcaption { font-size: 11px; color: var(--subtle); padding-top: 11px; text-align: center; }
+.research-copy h3 { margin-bottom: 20px; font-size: clamp(1.8rem,2.65vw,2.65rem); }
+.research-copy p { color: var(--text-2); font-size: 15px; line-height: 1.85; margin-bottom: 15px; }
+.research-copy p:last-child { margin-bottom: 0; }
+
+/* CV: academic appointments and education in quiet columns */
+.cv-section { padding-bottom: 115px; }
+.cv-section .section-intro { margin-bottom: 57px; }
+.cv-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 85px; }
+.cv-columns h3 { font-family: -apple-system, BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; font-size: 17px; font-weight: 700; letter-spacing: -.01em; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.cv-entry { display: grid; grid-template-columns: 115px minmax(0,1fr); gap: 18px; margin-bottom: 31px; }
+.cv-entry .cv-dates { font-size: 13px; color: var(--muted); font-weight: 600; padding-top: 1px; }
+.cv-entry h4 { font-size: 15px; line-height: 1.45; margin-bottom: 6px; font-weight: 650; }
+.cv-entry p { color: var(--muted); font-size: 14px; line-height: 1.55; margin: 0; }
+.text-link { color: var(--accent); font-size: 14px; font-weight: 650; white-space: normal; }
+.text-link:hover { text-decoration: underline; text-underline-offset: 5px; }
+
+/* Publications */
+.publication-row { display: grid; grid-template-columns: 100px minmax(0,1fr); padding: 28px 0 30px; gap: 25px; border-top: 1px solid var(--border); }
+.publication-row:last-child { border-bottom: 1px solid var(--border); }
+.publication-year { font-weight: 650; color: var(--muted); font-size: 13px; padding-top: 7px; }
+.publication-body h3 { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; font-weight: 650; letter-spacing: -.015em; line-height: 1.48; font-size: 17px; margin: 0 0 7px; }
+.publication-authors { color: var(--text-2); font-size: 14px; margin: 0 0 3px; }
+.publication-meta { color: var(--muted); font-size: 13px; margin: 0 0 7px; }
+.publication-links { display: flex; gap: 20px; margin-top: 11px; }
+.publication-links a { font-size: 13px; }
+.page-banner { background: var(--hero-bg) url('hero-star.jpg') right 45%/cover no-repeat; background-blend-mode: var(--hero-blend); color: var(--ink); position: relative; border-bottom: 1px solid var(--header-border); }
+.page-banner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg,rgba(var(--hero-tint),var(--hero-tint-from)) 0%,rgba(var(--hero-tint),var(--hero-tint-to)) 55%); }
+.page-banner .wrap { position: relative; padding: 87px 0 86px; }
+.page-banner h1 { font-size: clamp(3.9rem,7vw,6rem); margin: 0 0 14px; color: var(--hero-title); }
+.page-banner p:last-child { color: var(--hero-text); font-size: 17px; margin-bottom: 0; }
+.publication-section { padding-top: 91px; }
+.publication-intro { display: flex; align-items: baseline; justify-content: space-between; gap: 30px; margin-bottom: 40px; }
+.publication-intro h2 { font-size: 2.5rem; margin-bottom: 9px; }
+.publication-intro p { color: var(--muted); font-size: 13px; }
+.publication-section .publication-row { border-top-color: var(--border-soft); }
+.publication-section .publication-row:last-child { border-bottom-color: var(--border-soft); }
+.publication-section .publication-body h3 { font-size: 19px; }
+
+/* Optional Media */
+.media-section { background: var(--warm); }
+.media-list { border-top: 1px solid var(--border); margin-top: 50px; }
+.media-entry { display: grid; grid-template-columns: 100px minmax(0,1fr); gap: 25px; border-bottom: 1px solid var(--border); padding: 22px 0; }
+.media-entry h3 { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; font-size: 17px; font-weight: 650; margin-bottom: 5px; }
+
+.site-footer { background: var(--footer-bg); color: var(--footer-text); padding: 53px 0 0; }
+.footer-inner { display: flex; justify-content: space-between; align-items: start; gap: 30px; padding-bottom: 59px; }
+.footer-name { font-family: Georgia,serif; font-size: 25px; margin-bottom: 2px; }
+.footer-institution { font-size: 13px; color: var(--footer-muted); margin: 0; }
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-links a { color: var(--footer-link); font-size: 13px; }
+.footer-links a:hover { color: var(--footer-text); }
+.footer-bottom { border-top: 1px solid var(--footer-line); padding: 20px 0; display: flex; justify-content: space-between; gap: 20px; color: var(--footer-muted); font-size: 11px; }
+
+@media (max-width: 820px) {
+  .research-item { gap: 34px; }
+  .cv-columns { gap: 40px; }
+  .cv-entry { grid-template-columns: 1fr; gap: 3px; }
+}
+@media (max-width: 630px) {
+  :root { --header-height: 56px; }
+  .site-header { height: var(--header-height); }
+  .header-content { min-height: var(--header-height); justify-content: flex-start; }
+  .header-content { gap: 22px; }
+  .nav-links { flex: 1; min-width: 0; gap: 25px; overflow-x: auto; scrollbar-width: none; }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-link { padding: 10px 0 11px; font-size: 12px; }
+  .hero { min-height: 340px; background-position: 78% center; }
+  .hero-shade { background: linear-gradient(90deg,rgba(var(--hero-tint),var(--hero-tint-from-m)) 0%,rgba(var(--hero-tint),var(--hero-tint-to-m)) 100%); }
+  .hero-inner { padding-top: 40px; padding-bottom: 44px; }
+  .hero h1 { font-size: clamp(3.85rem,14vw,5.7rem); }
+  .hero-role { font-size: 13px; }
+  .hero-tagline { font-size: 12px; line-height: 1.6; }
+  .section { padding-top: 76px; padding-bottom: 81px; }
+  h2 { font-size: 2.55rem; }
+  .about-layout { grid-template-columns: 1fr; grid-template-rows: none; grid-template-areas: "photo" "title" "prose" "extras"; }
+  .portrait-figure { width: 82%; max-width: 340px; margin: 0 0 38px; }
+  .about-extras .minor-title { margin-top: 38px; }
+  .prose p { font-size: 16px; }
+  .section-intro { margin-bottom: 42px; }
+  .section-intro p { font-size: 16px; }
+  .research-item { grid-template-columns: 1fr; gap: 19px; padding: 43px 0 47px; }
+  .research-item:nth-child(even) .research-art { order: 0; }
+  .research-art figcaption { font-size: 10px; }
+  .research-copy h3 { font-size: 1.9rem; }
+  .cv-columns { grid-template-columns: 1fr; gap: 25px; }
+  .cv-entry { grid-template-columns: 120px 1fr; gap: 15px; }
+  .publication-row { grid-template-columns: 60px minmax(0,1fr); gap: 14px; }
+  .publication-body h3 { font-size: 16px; }
+  .page-banner .wrap { padding: 70px 0; }
+  .page-banner h1 { font-size: 3.6rem; }
+  .publication-intro { display: block; }
+  .publication-intro h2 { font-size: 2rem; }
+  .footer-inner { display: block; }
+  .footer-links { margin-top: 25px; }
+  .footer-bottom { flex-direction: column; gap: 4px; }
+}
+/* Discreet palette switch (the ✦ at the top left of the menu bar) */
+.palette-toggle-wrap { display: inline-flex; align-items: center; gap: 10px; margin-right: auto; flex: none; font-size: 11px; color: var(--nav); }
+.palette-toggle { background: none; border: 0; padding: 6px; margin: -6px; font: inherit; font-size: 22px; line-height: 1; color: var(--nav); opacity: .6; cursor: pointer; transition: opacity .2s, transform .4s; }
+.palette-toggle:hover, .palette-toggle:focus-visible { opacity: 1; transform: rotate(72deg); }
+.palette-toggle-wrap { position: relative; }
+.palette-name { position: absolute; left: 30px; top: 50%; transform: translateY(-50%); white-space: nowrap; padding: 3px 8px; border-radius: 4px; background: var(--paper); box-shadow: 0 2px 10px -4px rgba(var(--shadow),.35); opacity: 0; pointer-events: none; transition: opacity .3s; letter-spacing: .04em; z-index: 1; }
+.palette-name.show { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
