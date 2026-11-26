@@ -100,6 +100,7 @@
 
   function fillHome() {
     byId('hero-title').textContent = data.name || 'Your Name';
+    byId('hero-role').replaceChildren(); /* the HTML holds a copy for search engines */
     (data.affiliation || []).forEach((line, i) => {
       if (i) byId('hero-role').appendChild(node('br'));
       byId('hero-role').append(line);
@@ -230,7 +231,6 @@
   addNav();
   if (isPublications) fillPublications(); else fillHome();
   addFooter();
-  document.title = (isPublications ? 'Publications — ' : '') + (data.name || 'Academic website');
   setActiveNav();
   /* On tall screens the last section (CV, or Media when enabled) is shorter than the space below the
      menu bar, so the page cannot scroll far enough to bring it to the top when its tab is clicked.

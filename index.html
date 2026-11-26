@@ -7,12 +7,38 @@
   <meta name="description" content="Jérôme Bétrisey, astrophysicist at the University of Zurich. Asteroseismology, stellar structure and evolution, and star–planet interactions.">
   <meta name="author" content="Jérôme Bétrisey">
   <title>Jérôme Bétrisey — Astrophysicist</title>
+  <!-- Main address of this page for search engines (also reached as /index.html) -->
+  <link rel="canonical" href="https://jeromebetrisey.github.io/">
   <!-- Preview shown when the link is shared (Slack, e-mail, LinkedIn, …) -->
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://jeromebetrisey.github.io/">
+  <meta property="og:site_name" content="Jérôme Bétrisey">
   <meta property="og:title" content="Jérôme Bétrisey — Astrophysicist">
   <meta property="og:description" content="Jérôme Bétrisey, astrophysicist at the University of Zurich. Asteroseismology, stellar structure and evolution, and star–planet interactions.">
-  <meta property="og:image" content="assets/hero-star.jpg">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://jeromebetrisey.github.io/assets/hero-star.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Who this site is about, for search engines. Update if your position changes. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jérôme Bétrisey",
+    "url": "https://jeromebetrisey.github.io/",
+    "image": "https://jeromebetrisey.github.io/assets/portrait.jpg",
+    "jobTitle": "Astrophysicist, SNSF postdoctoral fellow",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Zurich",
+      "department": "Institut für Astrophysik"
+    },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "University of Geneva" },
+      { "@type": "CollegeOrUniversity", "name": "ETH Zurich" }
+    ],
+    "knowsAbout": ["Asteroseismology", "Stellar structure and evolution", "Exoplanet host stars", "Star-planet interactions"],
+    "sameAs": ["https://orcid.org/0000-0002-6462-3683"]
+  }
+  </script>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/styles.css">
   <script src="assets/content.js"></script>
@@ -28,8 +54,9 @@
     <section id="home" class="hero" aria-labelledby="hero-title">
       <div class="hero-shade"></div>
       <div class="hero-inner wrap">
-        <h1 id="hero-title"></h1>
-        <p class="hero-role" id="hero-role"></p>
+        <!-- Also written here (not only in content.js) so that search engines see them without running JavaScript -->
+        <h1 id="hero-title">Jérôme Bétrisey</h1>
+        <p class="hero-role" id="hero-role">Institut für Astrophysik, Universität Zürich<br>Winterthurerstrasse 190, CH-8057 Zürich, Switzerland</p>
         <div class="hero-rule"></div>
         <p class="hero-tagline" id="hero-tagline"></p>
       </div>
